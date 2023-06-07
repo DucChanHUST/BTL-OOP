@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<VBox fillWidth="false" prefWidth="804.0" style="-fx-background-color: #FFFFFF;" stylesheets="@../Styles/GUI32pane.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.GUI32paneController">
+   <HBox alignment="CENTER_LEFT" prefHeight="58.0" prefWidth="804.0">
+      <Label fx:id="switch_lbl" prefHeight="66.0" prefWidth="438.0" styleClass="addingQuestion" text="Adding a Multiple choice question" />
+   </HBox>
+   <VBox prefWidth="784.0" spacing="15.0">
+      <VBox.margin>
+         <Insets left="20.0" />
+      </VBox.margin>
+      <HBox alignment="CENTER_LEFT">
+         <VBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="22.0">
+            <SVGPath content="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" fill="#192a56" scaleX="0.034" scaleY="0.034" />
+         </VBox>
+         <Label text="General" textFill="#c23616">
+            <font>
+               <Font size="18.0" />
+            </font>
+         </Label>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="780.0">
+         <Label prefHeight="22.0" prefWidth="120.0" text="Category">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Label>
+         <ComboBox fx:id="comboBox" prefHeight="32.0" prefWidth="200.0">
+            <HBox.margin>
+               <Insets left="130.0" />
+            </HBox.margin>
+         </ComboBox>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="5.0" prefWidth="800.0">
+         <Label fx:id="test_label" prefHeight="22.0" prefWidth="120.0" text="Question name">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Label>
+         <VBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="20.0">
+            <HBox.margin>
+               <Insets left="100.0" />
+            </HBox.margin>
+            <SVGPath content="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24V264c0 13.3-10.7 24-24 24s-24-10.7-24-24V152c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z" fill="#c23616" scaleX="0.03" scaleY="0.03" />
+         </VBox>
+         <TextField prefHeight="32.0" prefWidth="323.0">
+            <HBox.margin>
+               <Insets left="10.0" />
+            </HBox.margin>
+         </TextField>
+      </HBox>
+      <HBox prefHeight="126.0" prefWidth="780.0">
+         <VBox prefHeight="126.0" prefWidth="250.0">
+            <VBox prefHeight="31.0" prefWidth="190.0">
+               <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="110.0">
+                  <Label prefHeight="22.0" prefWidth="120.0" text="Question text">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Region prefHeight="30.0" prefWidth="100.0" />
+                  <VBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="20.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <SVGPath content="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24V264c0 13.3-10.7 24-24 24s-24-10.7-24-24V152c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z" fill="#c23616" scaleX="0.03" scaleY="0.03">
+                        <VBox.margin>
+                           <Insets />
+                        </VBox.margin>
+                     </SVGPath>
+                  </VBox>
+               </HBox>
+            </VBox>
+         </VBox>
+         <TextArea prefHeight="126.0" prefWidth="356.0" />
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="12.0" prefWidth="780.0">
+         <Label prefHeight="22.0" prefWidth="120.0" text="Default mark">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Label>
+         <VBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="20.0">
+            <HBox.margin>
+               <Insets left="100.0" />
+            </HBox.margin>
+            <SVGPath content="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24V264c0 13.3-10.7 24-24 24s-24-10.7-24-24V152c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z" fill="#c23616" scaleX="0.03" scaleY="0.03" />
+         </VBox>
+         <TextField prefHeight="32.0" prefWidth="66.0">
+            <HBox.margin>
+               <Insets left="10.0" />
+            </HBox.margin>
+         </TextField>
+      </HBox>
+      <VBox fx:id="choicesLayout" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="94.0" prefWidth="780.0" style="-fx-background-color: E0E0E0;">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="780.0">
+                     <children>
+                        <ImageView fx:id="image" fitHeight="300.0" fitWidth="780.0" pickOnBounds="true" preserveRatio="true">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="22.0" prefWidth="120.0" text="Choice ">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="text" prefHeight="25.0" prefWidth="597.0" />
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label prefHeight="22.0" prefWidth="120.0" text="Grade">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <ComboBox fx:id="grade" prefWidth="150.0" />
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox alignment="TOP_CENTER" prefHeight="198.0" prefWidth="784.0" spacing="15.0">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <styleClass>
+            <String fx:value="general_container" />
+            <String fx:value="btn" />
+         </styleClass>
+         <Button fx:id="blanks_btn" mnemonicParsing="false" prefHeight="34.0" prefWidth="255.0" text="BLANKS FOR MORE 3 CHOICES" textFill="WHITE">
+            <VBox.margin>
+               <Insets bottom="10.0" />
+            </VBox.margin>
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Button>
+         <Button fx:id="saveAndContinue_btn" mnemonicParsing="false" prefHeight="34.0" prefWidth="329.0" text="SAVE CHANGES AND CONTINUE EDITTING" />
+         <HBox alignment="TOP_CENTER" prefHeight="36.0" prefWidth="550.0">
+            <Button fx:id="saveChanges_btn" mnemonicParsing="false" styleClass="red_btn" text="SAVE CHANGES" />
+            <Button fx:id="cancel_btn" mnemonicParsing="false" text="CANCEL">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Button>
+         </HBox>
+      </VBox>
+   </VBox>
+</VBox>

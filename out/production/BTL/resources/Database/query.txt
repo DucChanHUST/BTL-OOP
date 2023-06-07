@@ -1,0 +1,36 @@
+//INSERT CHILD
+
+LOCK TABLES category WRITE;
+SELECT @myRight := rgt FROM category
+WHERE name = 'Nội dunggg';
+
+UPDATE category SET rgt = rgt + 2 WHERE rgt > @myRight;
+UPDATE category SET lft = lft + 2 WHERE lft > @myRight;
+
+INSERT INTO category(category_id, name, info, lft, rgt) VALUES(null, 'javafx', 'javafx and scene builder', @myRight, @myRight + 1);
+UNLOCK TABLES;
+
+UPDATE category SET rgt = rgt + 2 WHERE name = 'Nội dunggg';
+
+//DELETE NODE
+
+LOCK TABLE nested_category WRITE;
+
+SELECT @myLeft := lft, @myRight := rgt, @myWidth := rgt - lft + 1 FROM category WHERE name = 'FASGSDGS';
+
+DELETE FROM category WHERE lft BETWEEN @myLeft AND @myRight;
+
+UPDATE category SET rgt = rgt - @myWidth WHERE rgt > @myRight;
+UPDATE category SET lft = lft - @myWidth WHERE lft > @myRight;
+
+UNLOCK TABLES;
+
+
+//DUYET CAY
+
+SELECT CONCAT( REPEAT( ' ', (COUNT(parent.name) - 1) ), node.name) AS name
+FROM category AS node,
+        category AS parent
+WHERE node.lft BETWEEN parent.lft AND parent.rgt
+GROUP BY node.category_id
+ORDER BY node.lft;

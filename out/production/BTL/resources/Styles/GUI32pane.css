@@ -1,0 +1,18 @@
+.addingQuestion {
+    -fx-font-size: 2em;
+    -fx-text-fill: #c23616;
+}
+
+.general_container Button {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 1.1em;
+    -fx-background-color: #0097e6;
+    -fx-background-radius: 5;
+}
+
+.red_btn{
+    -fx-background-color: #c23616;
+}
+.btn:hover {
+    -fx-cursor: hand;
+}

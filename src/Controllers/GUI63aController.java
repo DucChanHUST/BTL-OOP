@@ -35,7 +35,7 @@ public class GUI63aController implements Initializable {
 
     public Connection getConnection() {
         try {
-            return DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "");
+            return DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "0000");
         } catch (Exception e) {
             e.printStackTrace();
             return null;

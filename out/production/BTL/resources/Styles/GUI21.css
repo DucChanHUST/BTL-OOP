@@ -1,0 +1,80 @@
+.tab_bar {
+    -fx-background-color: #192a56;
+    -fx-fill: #FFFFFF;
+    -fx-spacing: 10;
+}
+.tab_bar SVGPath {
+    -fx-fill: #FFFFFF;
+}
+.tab_bar Label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 1.4em;
+}
+.tab_bar SVGPath:hover {
+    -fx-cursor: hand;
+}
+.tab_bar Label:hover {
+    -fx-cursor: hand;
+}
+
+.container1 {
+    -fx-border-width: 1;
+    -fx-border-color: #dcdde1;
+    -fx-padding: 10 30 10 30;
+    -fx-spacing: 30;
+}
+.it_lbl {
+    -fx-font-family: "Times New Roman";
+}
+.container1 Label {
+    -fx-font-size: 1.2em;
+}
+.container1 Label:hover {
+    -fx-cursor: hand;
+}
+
+.container1 Text {
+    -fx-font-size: 1.2em;
+}
+
+.tab {
+    -fx-padding: 5 20 5 20;
+    -fx-background-color: #FFFFFF;
+}
+
+.tab .tab-label {
+    -fx-alignment: CENTER;
+    -fx-text-fill: #40739e;
+    -fx-font-size: 1.3em;
+}
+.tab:selected .tab-label {
+    -fx-alignment: CENTER;
+    -fx-text-fill: black;
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #FFFFFF;
+}
+
+.tab-pane .tab {
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: E8E8E8;
+}
+.tab-pane .tab:selected {
+    -fx-border-width: 1 1 0 1;
+    -fx-border-color: E8E8E8;
+}
+
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+    -fx-border-color: transparent;
+}
+
+.Button {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 1.1em;
+    -fx-background-color: #192a56;
+    -fx-background-radius: 5;
+}
+.Button:hover{
+    -fx-cursor: hand;
+}

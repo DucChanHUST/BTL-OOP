@@ -1,15 +1,14 @@
 package Controllers;
 
 import Models.Model;
+import Models.QuestionChoice;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.LightBase;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -17,15 +16,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 public class GUI32paneController implements Initializable {
     @FXML
-    private ComboBox comboBox;
+    private ComboBox categoryComboBox;
     @FXML
     private Label switch_lbl;
     @FXML
@@ -41,6 +37,15 @@ public class GUI32paneController implements Initializable {
     @FXML
     private VBox choicesLayout;
 
+    @FXML
+    private TextField questionMark;
+
+    @FXML
+    private TextField questionName;
+
+    @FXML
+    private TextArea questionText;
+
     public Connection getConnection() {
         try {
 //            Class.forName("com.mysql.jdbc.Driver");
@@ -51,7 +56,7 @@ public class GUI32paneController implements Initializable {
             return null;
         }
     }
-    public void getComboBox() {
+    public void getCategoryComboBox() {
         String queryCategoryName = "" +
                 "SELECT CONCAT( REPEAT(' ', COUNT(parent.name) - 1), node.name) AS name " +
                 "FROM category AS node," +
@@ -67,7 +72,7 @@ public class GUI32paneController implements Initializable {
                 String item = resultSet.getString("name");
                 categoryName.add(item);
             }
-            comboBox.setItems(categoryName);
+            categoryComboBox.setItems(categoryName);
         } catch (Exception e) {e.printStackTrace();}
     }
     public void showGUI21() {
@@ -76,36 +81,41 @@ public class GUI32paneController implements Initializable {
         Model.getInstance().getViewFactory().showGUI21();
     }
 
-    public void insert3MoreChoices(){
-        for(int i=1;i<=3;i++){
+    public void insertKMoreChoices(int k){
+        for(int i=1;i<=k;i++){
             FXMLLoader loader= new FXMLLoader();
             loader.setLocation(getClass().getResource("/resources/Fxml/GUI32Choice.fxml"));
             try {
-                HBox hBox = loader.load();
+                Pane pane = loader.load();
                 GUI32ChoiceController controller;
-                choicesLayout.getChildren().add(hBox);
+                choicesLayout.getChildren().add(pane);
             }catch (IOException e){
                 e.printStackTrace();
             }
         }
     }
 
+    public void insertQuestion(){
+        try{
+            Connection connection = getConnection();
+            Statement statement = connection.createStatement();
+            statement.executeUpdate("insert into question (name, text, mark)"
+                    + "value ('" + questionName.getText() + "','"
+                    + questionText.getText() + "','"
+                    + Integer.parseInt(questionMark.getText()) + "');");
+            System.out.println("Question Created!");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        getComboBox();
+        getCategoryComboBox();
         cancel_btn.setOnAction(event -> showGUI21());
-        saveChanges_btn.setOnAction(event -> showGUI21());
-        blanks_btn.setOnAction(event -> insert3MoreChoices());
-
-//        FXMLLoader loader= new FXMLLoader();
-//        loader.setLocation(getClass().getResource("/resources/Fxml/GUI32Choice.fxml"));
-//        try {
-//            HBox hBox = loader.load();
-//            GUI32ChoiceController controller;
-//            choicesLayout.getChildren().add(hBox);
-//        }catch (IOException e){
-//            e.printStackTrace();
-//        }
+        saveChanges_btn.setOnAction(event -> insertQuestion());
+        blanks_btn.setOnAction(event -> insertKMoreChoices(3));
+        insertKMoreChoices(2);
 
     }
 }

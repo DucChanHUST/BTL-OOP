@@ -1,0 +1,56 @@
+.table-view {
+    -fx-font-size: 1.2em;
+}
+
+.table-view .column-header-background{
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+.table-view .filler {
+    -fx-background-color: transparent;
+}
+
+.table-view .table-cell{
+    -fx-text-fill: black;
+    -fx-border-color: transparent;
+    -fx-padding: 2 0 2 10px;
+}
+.table-row-cell:hover {
+    -fx-cursor: hand;
+}
+.table-row-cell{
+    -fx-background-color: #FFFFFF;
+    -fx-padding: 0 0 15 50;
+}
+
+.table-view:focused{
+    -fx-background-color: transparent;
+}
+.table-view .virtual-flow .scroll-bar:vertical,
+.table-view .virtual-flow .scroll-bar:vertical .track,
+.table-view .virtual-flow .scroll-bar:vertical .track-background,
+.table-view .virtual-flow .scroll-bar:horizontal,
+.table-view .virtual-flow .scroll-bar:horizontal .track,
+.table-view .virtual-flow .scroll-bar:horizontal .track-background {
+    -fx-background-color: transparent;
+}
+
+.table-view .virtual-flow .scroll-bar .increment-button,
+.table-view .virtual-flow .scroll-bar .decrement-button {
+    -fx-opacity: 0;
+    -fx-padding: 2;
+}
+
+.Button {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 1.1em;
+    -fx-background-color: #192a56;
+    -fx-background-radius: 5;
+}
+.Button:hover {
+    -fx-cursor: hand;
+}

@@ -1,0 +1,52 @@
+.tab_bar {
+    -fx-background-color: #192a56;
+    -fx-fill: #FFFFFF;
+    -fx-spacing: 10;
+}
+.tab_bar SVGPath {
+    -fx-fill: #FFFFFF;
+}
+.tab_bar Label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 1.4em;
+}
+.tab_bar SVGPath:hover {
+    -fx-cursor: hand;
+}
+.tab_bar Label:hover {
+    -fx-cursor: hand;
+}
+
+.container1 {
+    -fx-border-width: 1;
+    -fx-border-color: #dcdde1;
+    -fx-padding: 10 30 10 30;
+    -fx-spacing: 30;
+}
+.it_lbl {
+    -fx-font-family: "Times New Roman";
+}
+.container1 Label {
+    -fx-font-size: 1.2em;
+}
+.container1 Label:hover {
+    -fx-cursor: hand;
+}
+
+.container1 Text {
+    -fx-font-size: 1.2em;
+}
+
+.Button {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 1.1em;
+    -fx-background-color: #192a56;
+    -fx-background-radius: 5;
+}
+.Button:hover{
+    -fx-cursor: hand;
+}
+
+.iconAdd > .label {
+    -fx-graphic: url("resources/Image/add.png");
+}

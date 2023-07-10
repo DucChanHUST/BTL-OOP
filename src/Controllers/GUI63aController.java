@@ -28,6 +28,8 @@ public class GUI63aController extends GUI63aItemController implements Initializa
     @FXML
     private CheckBox alsoShow_ckb;
     @FXML
+    private CheckBox selectAll_ckb;
+    @FXML
     private VBox listQues;
     @FXML
     private Button add_btn;
@@ -133,7 +135,6 @@ public class GUI63aController extends GUI63aItemController implements Initializa
         });
         add_btn.setOnAction(event -> {
             showGUI62a_add();
-            System.out.println(prepareToAdd.size());
             prepareToAdd.clear();
         });
         List<QQuestion> qQuestionList = new ArrayList<>(qQuestionList("SELECT * FROM question"));
@@ -149,7 +150,6 @@ public class GUI63aController extends GUI63aItemController implements Initializa
                 throw new RuntimeException(e);
             }
         }
-        //TODO
         comboBox.setOnAction(event -> {
             listQues.getChildren().clear();
             categoryName = comboBox.getValue().trim();
@@ -170,7 +170,6 @@ public class GUI63aController extends GUI63aItemController implements Initializa
                 }
             }
         });
-
         alsoShow_ckb.setOnAction(event -> {
             if (alsoShow_ckb.isSelected()) {
                 System.out.println("also show questions from sub categories");
@@ -181,14 +180,15 @@ public class GUI63aController extends GUI63aItemController implements Initializa
                 for (int i = 0; i < qQuestionList3.size(); i++) {
                     FXMLLoader loader = new FXMLLoader();
                     loader.setLocation(getClass().getResource("/resources/Fxml/GUI63aItem.fxml"));
+                    HBox hBox;
                     try {
-                        HBox hBox = loader.load();
-                        GUI63aItemController itemController = loader.getController();
-                        itemController.setData(qQuestionList3.get(i));
-                        listQues.getChildren().add(hBox);
+                        hBox = loader.load();
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
+                    GUI63aItemController itemController = loader.getController();
+                    itemController.setData(qQuestionList3.get(i));
+                    listQues.getChildren().add(hBox);
                 }
             } else {
                 System.out.println("don't show questions from sub categories");
@@ -201,13 +201,106 @@ public class GUI63aController extends GUI63aItemController implements Initializa
                 for (int i = 0; i < qQuestionList2.size(); i++) {
                     FXMLLoader loader = new FXMLLoader();
                     loader.setLocation(getClass().getResource("/resources/Fxml/GUI63aItem.fxml"));
+                    HBox hBox;
                     try {
-                        HBox hBox = loader.load();
-                        GUI63aItemController itemController = loader.getController();
-                        itemController.setData(qQuestionList2.get(i));
-                        listQues.getChildren().add(hBox);
+                        hBox = loader.load();
                     } catch (IOException e) {
                         throw new RuntimeException(e);
+                    }
+                    GUI63aItemController itemController = loader.getController();
+                    itemController.setData(qQuestionList2.get(i));
+                    listQues.getChildren().add(hBox);
+                }
+            }
+        });
+        selectAll_ckb.setOnAction(event ->
+        {
+            if (selectAll_ckb.isSelected()) {
+                if (alsoShow_ckb.isSelected()) {
+                    System.out.println("also show questions from sub categories");
+                    listQues.getChildren().clear();
+                    categoryName = comboBox.getValue().trim();
+                    categoryName = categoryName.substring(0, categoryName.indexOf('(') - 1);
+                    List<QQuestion> qQuestionList3 = new ArrayList<>(sQuestionList(categoryName));
+                    for (int i = 0; i < qQuestionList3.size(); i++) {
+                        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("/resources/Fxml/GUI63aItem.fxml"));
+                        HBox hBox;
+                        try {
+                            hBox = loader.load();
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                        GUI63aItemController itemController = loader.getController();
+                        itemController.setData(qQuestionList3.get(i));
+                        itemController.question_cbx.setSelected(true);
+                        itemController.setQuestion_cbx();
+                        listQues.getChildren().add(hBox);
+                    }
+                } else {
+                    listQues.getChildren().clear();
+                    categoryName = comboBox.getValue().trim();
+                    categoryName = categoryName.substring(0, categoryName.indexOf('(') - 1);
+                    query = "SELECT qs.name, qs.text, qs.question_id FROM question qs, category ct " +
+                            "WHERE qs.category_id=ct.category_id and ct.name = '" + categoryName + "';";
+                    List<QQuestion> qQuestionList2 = new ArrayList<>(qQuestionList(query));
+                    for (int i = 0; i < qQuestionList2.size(); i++) {
+                        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("/resources/Fxml/GUI63aItem.fxml"));
+                        HBox hBox;
+                        try {
+                            hBox = loader.load();
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                        GUI63aItemController itemController = loader.getController();
+                        itemController.setData(qQuestionList2.get(i));
+                        itemController.question_cbx.setSelected(true);
+                        itemController.setQuestion_cbx();
+                        listQues.getChildren().add(hBox);
+                    }
+                }
+            } else {
+                if (alsoShow_ckb.isSelected()) {
+                    System.out.println("also show questions from sub categories");
+                    listQues.getChildren().clear();
+                    categoryName = comboBox.getValue().trim();
+                    categoryName = categoryName.substring(0, categoryName.indexOf('(') - 1);
+                    List<QQuestion> qQuestionList3 = new ArrayList<>(sQuestionList(categoryName));
+                    for (int i = 0; i < qQuestionList3.size(); i++) {
+                        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("/resources/Fxml/GUI63aItem.fxml"));
+                        HBox hBox;
+                        try {
+                            hBox = loader.load();
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                        GUI63aItemController itemController = loader.getController();
+                        itemController.setData(qQuestionList3.get(i));
+                        itemController.question_cbx.setSelected(false);
+                        listQues.getChildren().add(hBox);
+                    }
+                } else {
+                    listQues.getChildren().clear();
+                    categoryName = comboBox.getValue().trim();
+                    categoryName = categoryName.substring(0, categoryName.indexOf('(') - 1);
+                    query = "SELECT qs.name, qs.text, qs.question_id FROM question qs, category ct " +
+                            "WHERE qs.category_id=ct.category_id and ct.name = '" + categoryName + "';";
+                    List<QQuestion> qQuestionList2 = new ArrayList<>(qQuestionList(query));
+                    for (int i = 0; i < qQuestionList2.size(); i++) {
+                        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("/resources/Fxml/GUI63aItem.fxml"));
+                        HBox hBox;
+                        try {
+                            hBox = loader.load();
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                        GUI63aItemController itemController = loader.getController();
+                        itemController.setData(qQuestionList2.get(i));
+                        itemController.question_cbx.setSelected(false);
+                        listQues.getChildren().add(hBox);
                     }
                 }
             }

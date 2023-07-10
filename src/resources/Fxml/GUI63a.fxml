@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.SVGPath?>
 
-<AnchorPane prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #FFFFFF;" stylesheets="@../Styles/GUI63.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.GUI63aController">
+<AnchorPane prefHeight="700.0" prefWidth="900.0" style="-fx-background-color: #FFFFFF;" stylesheets="@../Styles/GUI63.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.GUI63aController">
    <VBox layoutX="45.0" layoutY="26.0" prefHeight="700.0" prefWidth="900.0" spacing="5.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <padding>
          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -56,7 +56,7 @@
          </VBox>
       </HBox>
       <CheckBox fx:id="alsoShow_ckb" mnemonicParsing="false" stylesheets="@../Styles/CheckBox.css" text="Also show questions from sub category" />
-      <CheckBox mnemonicParsing="false" stylesheets="@../Styles/CheckBox.css" text="Also show old questions" />
+      <CheckBox fx:id="selectAll_ckb" mnemonicParsing="false" stylesheets="@../Styles/CheckBox.css" text="Select all" />
       <HBox maxWidth="880.0" minWidth="880.0" prefHeight="450.0" prefWidth="880.0">
          <ScrollPane fitToWidth="true" maxWidth="880.0" minWidth="880.0" prefHeight="450.0" prefWidth="880.0">
             <VBox fx:id="listQues" prefHeight="442.0" prefWidth="878.0" style="-fx-background-color: #FFFFFF;" />

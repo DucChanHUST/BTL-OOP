@@ -25,25 +25,20 @@ public class GUI63aItemController implements Initializable {
         id_lbl.setText(qQuestion.getQuestion_id()+"");
     }
     public static Vector<String> prepareToAdd = new Vector<>();
+    public void setQuestion_cbx() {
+        if (question_cbx.isSelected()) {
+            prepareToAdd.add(id_lbl.getText());
+        }
+        else {
+            for (int i = 0; i < prepareToAdd.size(); i++)
+                if (Objects.equals(id_lbl.getText(), prepareToAdd.get(i))) {
+                    prepareToAdd.remove(i);
+                    break;
+                }
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        question_cbx.setOnAction(event -> {
-            if (question_cbx.isSelected()) {
-                System.out.println("da chon");
-                System.out.println(id_lbl.getText());
-                prepareToAdd.add(id_lbl.getText());
-                System.out.println(prepareToAdd.size());
-            }
-            else {
-                System.out.println("da huy chon");
-                System.out.println(id_lbl.getText());
-                for (int i = 0; i < prepareToAdd.size(); i++)
-                    if (Objects.equals(id_lbl.getText(), prepareToAdd.get(i))) {
-                        prepareToAdd.remove(i);
-                        break;
-                    }
-                System.out.println(prepareToAdd.size());
-            }
-        });
+        question_cbx.setOnAction(event -> setQuestion_cbx());
     }
 }

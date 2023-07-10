@@ -137,6 +137,8 @@ public class GUI62aController extends GUI62aItemController implements Initializa
             throw new RuntimeException(e);
         }
     }
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getTitle(nameData);
